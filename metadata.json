@@ -1,0 +1,14 @@
+{
+  "uuid": "airplay-via-doubletake@local",
+  "name": "AirPlay via DoubleTake",
+  "description": "Minimal GNOME Shell panel menu for doubletake-ctl discovery, devices, connect, disconnect, and status actions.",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "version": 1
+}

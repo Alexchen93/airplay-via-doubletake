@@ -1,0 +1,15 @@
+# GNOME build/package leftovers
+*.tar.gz
+*.tmp
+
+# Local editor and OS metadata
+.DS_Store
+.idea/
+.vscode/
+
+# Never commit credentials or local secrets
+.env
+*.pem
+*.key
+credentials.json
+
