@@ -160,6 +160,18 @@ unzip -l airplay-via-doubletake@local.shell-extension.zip
 
 Live GNOME Shell loading must be tested inside an active GNOME session. A plain `gjs` invocation may fail at `resource:///org/gnome/shell/...` imports; that is expected outside GNOME Shell.
 
+## Desktop AirPlay tuning record (2026-09-28)
+
+On Alexchen Desktop, the DoubleTake user service was verified with an X11 screen-capture environment and the following conservative profile:
+
+```text
+-daemonize -x11-window-id 0x4af -hwaccel none -fps 15 -bitrate 1800 -no-audio
+```
+
+Latency testing used `-target-latency-ms` in this order: `2000` → `800` → `500` → `300`. The fixed `300ms` setting reduced perceived delay and remained stable during the attended test. The current experiment uses `-target-latency-ms 0`, which means automatic AirPlay policy rather than guaranteed zero latency. If automatic mode increases delay or becomes unstable, restore the fixed `300` value. Service backups were kept on the Desktop outside this repository.
+
+The service and receiver were verified with `systemctl --user is-active doubletake.service`, `doubletake-ctl status`, and `doubletake-ctl discover`. Do not commit PINs, passwords, QR tokens, or other credentials.
+
 ## Roadmap
 
 - Improve manual target/PIN field layout and keyboard focus.
